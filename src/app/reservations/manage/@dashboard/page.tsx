@@ -10,28 +10,34 @@ export default async function DashboardPage() {
 
     const addCar = async (addCarForm:FormData) => {
         "use server"
-        const model = addCarForm.get("model")
-        const description = addCarForm.get("desc")
-        const picture = addCarForm.get("picture")
-        const seats = addCarForm.get("seats")
-        const doors = addCarForm.get("doors")
-        const largebags = addCarForm.get("largebags")
-        const smallbags = addCarForm.get("smallbags")
-        const automatic = true
-        const dayRate = addCarForm.get("dayRate")
+        const brand = addCarForm.get("brand")
+        const carModel = addCarForm.get("carModel")
+        const type = addCarForm.get("type")
+        const pricePerDay = addCarForm.get("pricePerDay")
+        const licensePlate = addCarForm.get("licensePlate")
+        const address = addCarForm.get("address")
+        const district = addCarForm.get("district")
+        const province = addCarForm.get("province")
+        const postalCode = addCarForm.get("postalCode")
+        const googleMapsURL = addCarForm.get("googleMapsURL")
+        const imageURL = addCarForm.get("imageURL")
+        const tel = addCarForm.get("tel")
 
         try {
             await dbConnect()
             const car = await Car.create({
-                "model": model,
-                "description": description,
-                "picture": picture,
-                "seats": seats,
-                "doors": doors,
-                "largebags": largebags,
-                "smallbags": smallbags,
-                "automatic": automatic,
-                "dayRate": dayRate
+                "brand": brand,
+                "carModel": carModel,
+                "type": type,
+                "pricePerDay": pricePerDay,
+                "licensePlate": licensePlate,
+                "address": address,
+                "district": district,
+                "province": province,
+                "postalcode": postalCode,
+                "googleMapsURL": googleMapsURL,
+                "imageURL": imageURL,
+                "tel": tel
             })
         } catch(error) {
             console.log(error)
@@ -60,66 +66,90 @@ export default async function DashboardPage() {
                 <form action={addCar}>
                     <div className="text-xl text-blue-700">Create Car Model</div>
                     <div className="flex items-center w-1/2 my-2">
-                        <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
-                            Model</label>
-                        <input type="text" required id="model" name="model" placeholder="Car Model"
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="brand">
+                            Brand</label>
+                        <input type="text" required id="brand" name="brand" placeholder="Brand"
                         className="bg-white border-2 border-gray-200 rounded w-full p-2
                         text-gray-700 focus:outline-none focus:border-blue-400"/>
                     </div>
                     <div className="flex items-center w-1/2 my-2">
-                        <label className="w-auto block text-gray-700 pr-4" htmlFor="desc">
-                            Description</label>
-                        <input type="text" required id="desc" name="desc" placeholder="Car Description"
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="carModel">
+                            Car Model</label>
+                        <input type="text" required id="carModel" name="carModel" placeholder="Car Model"
                         className="bg-white border-2 border-gray-200 rounded w-full p-2
                         text-gray-700 focus:outline-none focus:border-blue-400"/>
                     </div>
                     <div className="flex items-center w-1/2 my-2">
-                        <label className="w-auto block text-gray-700 pr-4" htmlFor="picture">
-                            Picture</label>
-                        <input type="text" required id="picture" name="picture" placeholder="URL"
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="type">
+                            Type (ex. Sedan, Pickup etc.)</label>
+                        <input type="text" required id="type" name="type" placeholder="Type"
                         className="bg-white border-2 border-gray-200 rounded w-full p-2
                         text-gray-700 focus:outline-none focus:border-blue-400"/>
                     </div>
                     <div className="flex items-center w-1/2 my-2">
-                        <label className="w-auto block text-gray-700 pr-4" htmlFor="seats">
-                            Seats</label>
-                        <input type="number" required id="seats" name="seats" placeholder="4"
-                        min={0} max={50}
-                        className="bg-white border-2 border-gray-200 rounded w-auto p-2
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="pricePerDay">
+                            Price per day</label>
+                        <input type="text" required id="pricePerDay" name="pricePerDay" placeholder="price Per Day"
+                        className="bg-white border-2 border-gray-200 rounded w-full p-2
                         text-gray-700 focus:outline-none focus:border-blue-400"/>
+                    </div>
+                    <div className="flex items-center w-1/2 my-2">
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="licensePlate">
+                            License plate</label>
+                        <input type="text" required id="licensePlate" name="licensePlate" placeholder="License plate"
+                        className="bg-white border-2 border-gray-200 rounded w-full p-2
+                        text-gray-700 focus:outline-none focus:border-blue-400"/>
+                    </div>
+                    <div className="flex items-center w-1/2 my-2">
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="address">
+                            Address</label>
+                        <input type="text" required id="address" name="address" placeholder="Address"
+                        className="bg-white border-2 border-gray-200 rounded w-full p-2
+                        text-gray-700 focus:outline-none focus:border-blue-400"/>
+                    </div>
+                    <div className="flex items-center w-1/2 my-2">
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="district">
+                            District</label>
+                        <input type="text" required id="district" name="district" placeholder="District"
+                        className="bg-white border-2 border-gray-200 rounded w-full p-2
+                        text-gray-700 focus:outline-none focus:border-blue-400"/>
+                    </div>
+                    <div className="flex items-center w-1/2 my-2">
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="province">
+                            Province</label>
+                        <input type="text" required id="province" name="province" placeholder="Province"
+                        className="bg-white border-2 border-gray-200 rounded w-full p-2
+                        text-gray-700 focus:outline-none focus:border-blue-400"/>
+                    </div>
+                    <div className="flex items-center w-1/2 my-2">
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="postalCode">
+                            Postal code</label>
+                        <input type="text" required id="postalCode" name="postalCode" placeholder="Postal code"
+                        className="bg-white border-2 border-gray-200 rounded w-full p-2
+                        text-gray-700 focus:outline-none focus:border-blue-400"/>
+                    </div>
+                    <div className="flex items-center w-1/2 my-2">
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="googleMapsURL">
+                            Google Maps URL</label>
+                        <input type="text" required id="googleMapsURL" name="googleMapsURL" placeholder="Google Maps URL"
+                        className="bg-white border-2 border-gray-200 rounded w-full p-2
+                        text-gray-700 focus:outline-none focus:border-blue-400"/>
+                    </div>
+                    <div className="flex items-center w-1/2 my-2">
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="imageURL">
+                            Image URL</label>
+                        <input type="text" required id="imageURL" name="imageURL" placeholder="Image URL"
+                        className="bg-white border-2 border-gray-200 rounded w-full p-2
+                        text-gray-700 focus:outline-none focus:border-blue-400"/>
+                    </div>
+                    <div className="flex items-center w-1/2 my-2">
+                        <label className="w-auto block text-gray-700 pr-4" htmlFor="tel">
+                            Tel</label>
+                        <input type="text" required id="tel" name="tel" placeholder="tel"
+                        className="bg-white border-2 border-gray-200 rounded w-full p-2
+                        text-gray-700 focus:outline-none focus:border-blue-400"/>
+                    </div>
 
-                        <label className="w-auto block text-gray-700 pr-4 ml-5" htmlFor="doors">
-                            Doors</label>
-                        <input type="number" required id="doors" name="doors" placeholder="4"
-                        min={0} max={8}
-                        className="bg-white border-2 border-gray-200 rounded w-auto p-2
-                        text-gray-700 focus:outline-none focus:border-blue-400"/>
-                        <input type="checkbox" id="automatic" name="automatic"
-                        className="ml-5 mr-2"/><span>Auto</span>
-                    </div>
-                    <div className="flex items-center w-1/2 my-2">
-                        <label className="w-auto block text-gray-700 pr-4" htmlFor="largebags">
-                            Large Bags</label>
-                        <input type="number" required id="largebags" name="largebags" placeholder="2"
-                        min={0} max={10}
-                        className="bg-white border-2 border-gray-200 rounded w-auto p-2
-                        text-gray-700 focus:outline-none focus:border-blue-400"/>
-
-                        <label className="w-auto block text-gray-700 pr-4 ml-5" htmlFor="smallbags">
-                            Small Bags</label>
-                        <input type="number" required id="smallbags" name="smallbags" placeholder="2"
-                        min={0} max={10}
-                        className="bg-white border-2 border-gray-200 rounded w-auto p-2
-                        text-gray-700 focus:outline-none focus:border-blue-400"/>
-                    </div>
-                    <div className="flex items-center w-1/2 my-2">
-                        <label className="w-auto block text-gray-700 pr-4" htmlFor="dayRate">
-                            Rate</label>
-                        <input type="text" required id="dayRate" name="dayRate" 
-                        placeholder="Daily Rate (including insurance)"
-                        className="bg-white border-2 border-gray-200 rounded w-full p-2
-                        text-gray-700 focus:outline-none focus:border-blue-400"/>
-                    </div>
                     <button type="submit" className="bg-blue-500 hover:bg-blue-700
                     text-white p-2 rounded">Add New Car</button>
                 </form>

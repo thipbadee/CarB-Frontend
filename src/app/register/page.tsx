@@ -48,51 +48,56 @@ const RegistrationForm: React.FC = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
+        <div className="min-h-screen bg-pink-100 flex justify-center items-center">
+            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div className="mb-4">
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
                 </div>
-                <div>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                <div className="mb-4">
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
                 </div>
-                <div>
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="mb-4">
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
                 </div>
-                <div>
-                <input
-                    type="tel"
-                    placeholder="Telephone"
-                    value={telephone}
-                    onChange={(e) => setTelephone(e.target.value)}
-                />
+                <div className="mb-4">
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="tel"
+                        placeholder="Telephone"
+                        value={telephone}
+                        onChange={(e) => setTelephone(e.target.value)}
+                    />
                 </div>
-                <div>
-                <input
-                    type="text"
-                    placeholder="Role"
-                    value={userRole}
-                    onChange={(e) => setUserRole(e.target.value)}
-                />
+                <div className="mb-4">
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        placeholder="Role"
+                        value={userRole}
+                        onChange={(e) => setUserRole(e.target.value)}
+                    />
                 </div>
-                <button type="submit">Register</button>
+                <button type="submit" className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Register</button>
             </form>
-            <div>{message}</div>
+            <div className="text-center text-pink-500">{message}</div>
         </div>
     );
 };

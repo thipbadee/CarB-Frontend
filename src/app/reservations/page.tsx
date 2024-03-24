@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import LocationDateReserve from "@/components/LocationDateReserve";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -17,7 +17,12 @@ export default function Reservations () {
     const dispatch = useDispatch<AppDispatch>()
 
     const makeReservation = () => {
-        if(cid && model && pickupDate && returnDate) {
+        if (!model) {
+            window.alert("Please select a model first!");
+            window.location.href = "/car";
+            return;
+        }
+        if(cid && pickupDate && returnDate) {
             const item:ReservationItem = {
                 carId: cid,
                 carModel: model,

@@ -1,7 +1,9 @@
 export default function About() {
     return (
         <main>
-            <div>About Us</div>
+            <div>Thipbadee Ngamsukkasemsri</div>
+            <div>Amphikapha Thathong</div>
+            <div>Jirameth Wannasiwaporn</div>
         </main>
     );
 }

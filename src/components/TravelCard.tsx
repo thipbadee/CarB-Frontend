@@ -25,10 +25,10 @@ useWindowListener('pointermove', (e)=>{
             onClick={()=> { setPlaying(!playing) }}>
                 { playing? 'Pause':'Play' }
             </button>
-            <Rating className="w-full h-[10]" value={ (rating==undefined)? 0:rating } 
-            onChange={ (e, newValue)=> { if(newValue!=null) setRating(newValue) } }/>
+            {/* <Rating className="w-full h-[10]" value={ (rating==undefined)? 0:rating } 
+            onChange={ (e, newValue)=> { if(newValue!=null) setRating(newValue) } }/> */}
             </div>
-            <div>( {pointerPosition.x}, {pointerPosition.y} )</div>
+            {/* <div>( {pointerPosition.x}, {pointerPosition.y} )</div> */}
         </div>
     )
 }

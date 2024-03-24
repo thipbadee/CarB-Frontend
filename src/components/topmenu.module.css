@@ -1,13 +1,13 @@
 .menucontainer {
     height: 50px;
-    background-color: white;
+    background-color: pink;
     position: fixed;
     top: 0px;
     left: 0px;
     right: 0px;
     z-index: 30;
     border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 3px solid lightgray;
     display: flex;
     flex-direction: row;
 }
@@ -24,5 +24,5 @@
     margin-bottom: auto;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 10pt;
-    color: grey;
+    color: black;
 }

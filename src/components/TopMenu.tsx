@@ -11,7 +11,7 @@ export default async function TopMenu() {
 
 
     return (
-        <div className={styles.menucontainer}>
+        <div className="bg-white top-0 right-0 left-0 fixed z-30 h-[75px] flex flex-row">
             <Link href="/">
             <Image src={'/img/logo.png'} className={styles.logoimg} alt='logo'
             width={0} height={0} sizes='100vh'/>

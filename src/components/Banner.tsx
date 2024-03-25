@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import styles from './banner.module.css'
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
+import getMe from '@/libs/getMe';
 
 export default function Banner () {
     const covers = ['/img/cover.jpg', '/img/cover2.jpg', '/img/cover3.jpg']
@@ -11,7 +12,14 @@ export default function Banner () {
     const router = useRouter()
 
     const { data: session } = useSession()
-    console.log(session?.user.token)
+    console.log(session?.user)
+
+    // if (!session){
+    //     return null;
+    // }
+    // // const x = getMe(session)
+    // console.log(x)
+    // console.log(555555555,session)
 
     return (
         <div className={styles.banner} onClick={()=> { setIndex(index+1) }}>

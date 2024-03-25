@@ -23,11 +23,7 @@ export default function Banner () {
 
     return (
         <div className={styles.banner} onClick={()=> { setIndex(index+1) }}>
-            <Image src={covers[index%3]} 
-            alt='cover'
-            fill={true}
-            priority
-            objectFit='cover'/>
+            <div className="">
             <div className={styles.bannerText}>
                 <h1 className='text-4xl font-medium'>Your Travel Partner</h1>
                 <h3 className='text-xl font-serif'>Explore Your World with Us</h3>
@@ -44,6 +40,7 @@ export default function Banner () {
                 >
                 Select Your Travel Partner NOW
             </button>
+        </div>
         </div>
 
     );

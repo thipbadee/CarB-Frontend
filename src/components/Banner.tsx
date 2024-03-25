@@ -18,7 +18,7 @@ export default function Banner () {
     const router = useRouter()
 
     const { data: session } = useSession()
-    console.log(session?.user)
+    console.log(session?.user.token)
   
   
 

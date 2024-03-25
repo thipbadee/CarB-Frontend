@@ -22,14 +22,14 @@ export default function LocationDateReserve({onDateChange, onLocationChange}
                 />
             </LocalizationProvider>
 
-            <Select variant="standard"
+            {/* <Select variant="standard"
             name="location" id="location" value={location}
             onChange={ (e)=>{ setLocation(e.target.value); onLocationChange(e.target.value) } }
             className="h-[2em] w-[200px]">
                 <MenuItem value="BKK">Bangkok</MenuItem>
                 <MenuItem value="CNX">Chiang Mai</MenuItem>
                 <MenuItem value="HKT">Phuket</MenuItem>
-            </Select>
+            </Select> */}
         </div>
     )
 }

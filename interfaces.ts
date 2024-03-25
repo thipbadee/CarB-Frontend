@@ -17,8 +17,8 @@ export interface Bookings {
 export interface BookingsItem {
   _id: string;
   bookingDate: string;
-  user: string;
+  // user: string;
   car: string;
   createdAt: string;
-  __v: number;
+  // __v: number;
 }

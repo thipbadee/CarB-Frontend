@@ -7,7 +7,7 @@
     right: 0px;
     z-index: 30;
     border-top: 1px solid lightgray;
-    border-bottom: 3px solid lightgray;
+    border-bottom: 1px solid lightgray;
     display: flex;
     flex-direction: row;
 }

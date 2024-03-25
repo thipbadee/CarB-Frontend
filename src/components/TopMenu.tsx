@@ -11,16 +11,17 @@ export default async function TopMenu() {
 
 
     return (
-        <div className="bg-white top-0 right-0 left-0 fixed z-30 h-[75px] flex flex-row">
+        <div className="bg-white top-0 right-0 left-0 fixed z-30 h-[75px] flex flex-row shadow-lg shadow-black-200 ">
             <Link href="/">
             <Image src={'/img/logo.png'} className="h-full w-auto hover: transition-all duration-300 transform hover:scale-110" alt='logo'
             width={0} height={0} sizes='100vh'/>
             </Link>
             <TopMenuItem title='SELECT CAR' pageRef='/car'/>
-            <TopMenuItem title='RESERVATIONS' pageRef='/reservations'/>
-            <TopMenuItem title='ABOUT US' pageRef='/about'/>
+            {/* <TopMenuItem title='RESERVATIONS' pageRef='/reservations'/> */}
+            
             <div className='flex flex-row absolute right-0 h-full'>
-            <TopMenuItem title='CART' pageRef='/cart'/>
+            <TopMenuItem title='BOOKING CART' pageRef='/cart'/>
+            <TopMenuItem title='ABOUT US' pageRef='/about'/>
             <TopMenuItem title='REGISTER' pageRef='/register'/>
             {
                 session? 
@@ -34,6 +35,7 @@ export default async function TopMenu() {
                     SIGN-IN</div>
                     </Link>
             }
+         
             </div>
             
         </div>

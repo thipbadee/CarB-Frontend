@@ -16,22 +16,22 @@ export default async function TopMenu() {
             <Image src={'/img/logo.png'} className="h-full w-auto hover: transition-all duration-300 transform hover:scale-110" alt='logo'
             width={0} height={0} sizes='100vh'/>
             </Link>
-            <TopMenuItem title='Select Car' pageRef='/car'/>
-            <TopMenuItem title='Reservations' pageRef='/reservations'/>
-            <TopMenuItem title='About us' pageRef='/about'/>
+            <TopMenuItem title='SELECT CAR' pageRef='/car'/>
+            <TopMenuItem title='RESERVATIONS' pageRef='/reservations'/>
+            <TopMenuItem title='ABOUT US' pageRef='/about'/>
             <div className='flex flex-row absolute right-0 h-full'>
-            <TopMenuItem title='Cart' pageRef='/cart'/>
-            <TopMenuItem title='Register' pageRef='/register'/>
+            <TopMenuItem title='CART' pageRef='/cart'/>
+            <TopMenuItem title='REGISTER' pageRef='/register'/>
             {
                 session? 
            
                 <Link href="/api/auth/signout" className={styles.itemcontainer}>
                     <div className='font-bold items-center h-full  text-red-300 text-sm  hover:text-red-600 transition-all duration-300 transform hover:scale-110'>
-                    Sign-Out</div></Link>
+                    SIGN-OUT</div></Link>
         
                 : <Link href="/api/auth/signin" className={styles.itemcontainer}>
                     <div className='font-bold items-center h-full  text-red-300 text-sm  hover:text-red-600 transition-all duration-300 transform hover:scale-110'>
-                    Sign-In</div>
+                    SIGN-IN</div>
                     </Link>
             }
             </div>

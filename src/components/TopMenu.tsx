@@ -16,7 +16,7 @@ export default async function TopMenu() {
             <Image src={'/img/logo.png'} className="h-full w-auto hover: transition-all duration-300 transform hover:scale-110" alt='logo'
             width={0} height={0} sizes='100vh'/>
             </Link>
-            <TopMenuItem title='SELECT CAR' pageRef='/car'/>
+            {/* <TopMenuItem title='SELECT CAR' pageRef='/car'/> */}
             {/* <TopMenuItem title='RESERVATIONS' pageRef='/reservations'/> */}
             
             <div className='flex flex-row absolute right-0 h-full'>

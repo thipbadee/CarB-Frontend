@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import NextAuthProvider from "@/providers/NextAuthProvider";
 import ReduxProvider from "@/redux/ReduxProvider";
-
+import Foot from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const libre_Franklin = Libre_Franklin({ subsets: ["latin"] });
@@ -32,7 +32,9 @@ export default async function RootLayout({
         <ReduxProvider>
         <NextAuthProvider session={session}>
         <TopMenu/>
+     
         {children}
+        <Foot/>
         </NextAuthProvider>
         </ReduxProvider>
         </body>

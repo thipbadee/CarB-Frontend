@@ -7,8 +7,8 @@ export default async function ManagePage() {
     if(!session || !session.user.token) return null
 
     const res = await getBookings(session.user.token)
-    
-    
+        
+    // console.log(res)
 
     return(
         <main>
@@ -16,7 +16,7 @@ export default async function ManagePage() {
             {res.data.map((bookingItems)=>{
                 return (
                     <div>
-                        {bookingItems.bookingDate} {bookingItems.user} {bookingItems.car} {bookingItems.createdAt}
+                        {bookingItems.bookingDate} {bookingItems.car?.carModel} {bookingItems.createdAt}
                     </div>
                 )
             })}

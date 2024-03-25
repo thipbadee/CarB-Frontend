@@ -5,9 +5,8 @@ export default async function CarCatalog({carJson} : {carJson:Object}) {
     const carJsonReady = await carJson
     return (
         <>
-        Explore {carJsonReady.count} models in our catalog
-        <div style={{margin:"20px", display:"flex", flexDirection:"row",
-            flexWrap:"wrap", justifyContent:"space-around", alignContent:"space-around"}}>
+
+        <div className="m-10 flex flex-row flex-wrap place-content-around ">
                 {
                     carJsonReady.data.map((carItem:Object)=>(
                         <Link href={`/car/${carItem.id}` } 

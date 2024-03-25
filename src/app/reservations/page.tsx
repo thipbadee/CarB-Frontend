@@ -5,7 +5,7 @@ import { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
-import { BookingsItem } from "../../../interfaces";
+import { CreateBooking } from "../../../interfaces";
 import { addReservation } from "@/redux/features/cartSlice";
 import { useSession } from 'next-auth/react'
 
@@ -31,14 +31,13 @@ export default function Reservations () {
             return;
         }
         if(cid && pickupDate && returnDate) {
-            const item:BookingsItem = {
-                _id: cid,
+            const item:CreateBooking = {
                 bookingDate: dayjs(pickupDate).format("YYYY-MM-DD"),
                 // user: session.user.token,
                 car: cid,
                 createdAt: dayjs().format("YYYY-MM-DDTHH:mm:ssZ")
             }
-            dispatch(addReservation(item))
+            // dispatch(addReservation(item))
         }
 
         try {

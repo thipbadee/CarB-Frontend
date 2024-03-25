@@ -9,8 +9,10 @@ export default  function Car() {
     
     
     return (
-        <main className="text-center p-5">
-            <h1 className="text-xl font-medium">Select Your Travel Partner</h1>
+        <main className="p-10">
+            <div className=" font-bold text-5xl text-red-400"> Avaliable Cars</div>
+            <br />
+            <hr className="border-t-[5px] border-red-400"/>
             <Suspense fallback={ <p>Loading ... <LinearProgress/></p> }>
             <CarCatalog carJson={cars}/>
             </Suspense>

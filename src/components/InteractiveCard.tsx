@@ -20,7 +20,7 @@ export default function InteractiveCard( { children, contentName } : { children:
     }
     
     return(
-        <div className='w-full h-[300px] rounded-lg shadow-lg' 
+        <div className='w-full h-[300px] rounded-lg shadow-lg hover: transition-all duration-300 transform hover:scale-110' 
         onMouseOver={ (e)=>onCardMouseAction(e) }
         onMouseOut={ (e)=>onCardMouseAction(e) }>
             { children }

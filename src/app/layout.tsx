@@ -14,7 +14,7 @@ const libre_Franklin = Libre_Franklin({ subsets: ["latin"] });
 
 
 export const metadata: Metadata = {
-  title: "CarB",
+  title: "CarB - Car Booking System",
   description: "CarB - Car Booking System",
 };
 

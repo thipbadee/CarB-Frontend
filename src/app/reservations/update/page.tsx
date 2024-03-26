@@ -5,7 +5,7 @@ import { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
-import { CreateBooking } from "../../../interfaces";
+import { CreateBooking } from "../../../../interfaces";
 import { addReservation } from "@/redux/features/cartSlice";
 import { useSession } from 'next-auth/react'
 import { useRouter } from "next/router";
@@ -47,8 +47,8 @@ export default function Reservations () {
                 alert('Please select a date');
                 return;
             }
-            const response = await fetch(`http://localhost:5000/api/v1/cars/${cid}/bookings`, {
-                method: 'POST',
+            const response = await fetch(`http://localhost:5000/api/v1/bookings/${cid}`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${session?.user.token}`
@@ -57,7 +57,6 @@ export default function Reservations () {
                     bookingDate: dateValue?.format('YYYY-MM-DD')
                 })
             });
-
 
             // if (!response.ok) {
             //     alert('Cannot book this car on this day');
@@ -72,10 +71,6 @@ export default function Reservations () {
         }
 
         // console.log(pickupDate?.format('YYYY-MM-DD'));
-    };
-
-    const showMessage = (message: string) => {
-        setMessage(message);
     };
 
     const [pickupDate, setPickupDate] = useState<Dayjs|null>(null)

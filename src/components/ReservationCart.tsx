@@ -78,7 +78,7 @@ export default function ReservationCart() {
                         key={BookingsItem._id}
                     >
                         <Image src={BookingsItem.car?.imageURL ?? ''} alt="car" width={200} height={200} className="w-full h-full" />
-                        <div className="text-xl font-bold text-white">{BookingsItem.car?.brand} {BookingsItem.car?.carModel}</div>
+                        <div className="text-xl font-bold text-white mt-5">{BookingsItem.car?.brand} {BookingsItem.car?.carModel}</div>
                         <div className="text-xl font-bold text-white">license plate: {BookingsItem.car?.licensePlate}</div>
                         <div className="text-xl font-bold text-white">tel: {BookingsItem.car?.tel}</div>
                         <div className="text-sm font-bold text-white">

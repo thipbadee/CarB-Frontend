@@ -20,7 +20,7 @@ export default async function TopMenu() {
             {/* <TopMenuItem title='RESERVATIONS' pageRef='/reservations'/> */}
             
             <div className='flex flex-row absolute right-0 h-full'>
-            <TopMenuItem title='BOOKING CART' pageRef='/cart'/>
+            {/* <TopMenuItem title='BOOKING CART' pageRef='/cart'/> */}
             <TopMenuItem title='ABOUT US' pageRef='/about'/>
             <TopMenuItem title='REGISTER' pageRef='/register'/>
             {

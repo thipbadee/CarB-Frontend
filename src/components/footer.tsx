@@ -11,7 +11,7 @@ export default function footr() {
 
 
     return (
-        <div className="h-[500px] bg-red-400  w-full p-[50px] text-center drop-shadow-xl">
+        <div className="h-[50vh] bg-red-400  w-full p-[50px] text-center drop-shadow-xl">
           <h1 className="font-bold text-4xl text-white">Car Booking Web App</h1>
           <br />
           <h1 className="font-bold text-2xl text-white">

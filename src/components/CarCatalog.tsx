@@ -6,7 +6,7 @@ export default async function CarCatalog({carJson} : {carJson:Object}) {
     return (
         <>
 
-        <div className="m-10 flex flex-row flex-wrap place-content-around md:flex-col md:m-0 md:py-6 " >
+        <div className="m-10 flex flex-row flex-wrap place-content-around xl " >
                 {
                     carJsonReady.data.map((carItem:Object)=>(
                         <Link href={`/car/${carItem.id}` } 

@@ -82,19 +82,19 @@ export default function Reservations () {
     const [pickupLocation, setPickupLocation] = useState<string>('BKK')
 
     return(
-        <main className="w-[100%] flex flex-col items-center space-y-4">
-            <div className="text-xl font-medium">New Reservation</div>
-            <div className="text-xl font-medium">Car: {model}</div>
+        <main className="w-[100%] flex flex-col items-center space-y-4 p-10">
+            <div className="text-5xl font-bold mt-5 text-red-500">New Reservation</div>
+            <div className="text-3xl font-bold mt-5 text-red-400">Car: {model}</div>
             
             <div className="w-fit space-y-2">
-                <div className="text-medium text-left text-gray-600">Pick-Up Date</div>
+                <div className="text-xl text-center font-bold text-red-400">Pick-Up Date</div>
                 <LocationDateReserve onDateChange={(dateValue:Dayjs)=>{setPickupDate(dateValue)}}
                 onLocationChange={(locaValue:string)=>{setPickupLocation(locaValue)}}
                 />
             </div>
             
-            <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-            text-white shadow-sm" onClick={makeReservation}>
+            <button className="block w-[80%] bg-red-400 rounded-md hover:bg-red-500 transition-all duration-300 transform hover:scale-110 px-3 py-10 mb-5
+            text-white shadow-sm font-bold text-3xl" onClick={makeReservation}>
                 {/* {isClicked ? 'Reserved!' : 'Reserve this Car'} */}
                 Reserve this Car
             </button>

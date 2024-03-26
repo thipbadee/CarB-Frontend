@@ -13,10 +13,10 @@ export default function LocationDateReserve({onDateChange, onLocationChange}
     const [location, setLocation] = useState('BKK')
 
     return(
-        <div className="bg-slate-100 rounded-lg space-x-5 space-y-2
-        w-fit px-10 py-5 flex flex-row justify_center">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker className="bg=white"
+        <div className=" rounded-lg space-x-5 space-y-2
+        w-fit px-10 py-5 flex flex-row justify_center bg-white">
+            <LocalizationProvider dateAdapter={AdapterDayjs} >
+                <DatePicker className="bg=white text-white font-bold"
                 value={reserveDate}
                 onChange={(value)=>{setReserveDate(value); onDateChange(value)}}
                 />

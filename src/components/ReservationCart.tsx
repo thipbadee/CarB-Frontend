@@ -12,6 +12,7 @@ import { getServerSession } from "next-auth"
 import { BookingsItem } from "../../interfaces";
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import dayjs from "dayjs";
 
 // import DetailPage from "@/app/cart/[uid]/detail/page";
@@ -66,35 +67,37 @@ export default function ReservationCart() {
     // const res = await getBookings(session.user.token)
 
     return (
-        <>
+        <div className="flex flex-row flex-wrap">
             {bookingItems.length === 0 ? (
                 <div className="text-xl">Empty</div>
             ) : (
                 bookingItems.map((BookingsItem) => (
+                    <div>
                     <div
-                        className="bg-slate-200 rounded px-5 mx-5 py-2 my-2"
+                        className="bg-red-300 rounded px-5 mx-5 py-2 my-2 "
                         key={BookingsItem._id}
                     >
-                        <div className="text-xl">{BookingsItem.car?.brand} {BookingsItem.car?.carModel}</div>
-                        <div className="text-xl">license plate: {BookingsItem.car?.licensePlate}</div>
-                        <div className="text-xl">tel: {BookingsItem.car?.tel}</div>
-                        <div className="text-sm">
+                        <Image src={BookingsItem.car?.imageURL ?? ''} alt="car" width={200} height={200} />
+                        <div className="text-xl font-bold text-white">{BookingsItem.car?.brand} {BookingsItem.car?.carModel}</div>
+                        <div className="text-xl font-bold text-white">license plate: {BookingsItem.car?.licensePlate}</div>
+                        <div className="text-xl font-bold text-white">tel: {BookingsItem.car?.tel}</div>
+                        <div className="text-sm font-bold text-white">
                             Pick-up Date: {dayjs(BookingsItem?.bookingDate).format('YYYY-MM-DD')}
                         </div>
                         {/* <div className="text-sm">
                             Return {BookingsItem.bookingDate} to {BookingsItem.bookingDate}
                         </div> */}
                         <button
-                            className="rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-                            text-white shadow-sm mx-2"
+                            className="rounded-md bg-white hover:bg-red-500 px-3 py-2
+                            text-red-300 shadow-sm mr-2 mt-3 mb-3"
                             onClick={() => {deleteBooking(BookingsItem._id, session);}}
                         >
                             Remove from Cart
                         </button>
                         <Link href={`/cart/${BookingsItem._id}/detail`}>
                                 <button
-                                    className="rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-                                    text-white shadow-sm"
+                                    className="rounded-md bg-white hover:bg-red-500 px-3 py-2
+                                    text-red-300 shadow-sm"
                                     // onClick={() => useRouter().push(`/cart/${BookingsItem._id}/detail`)}
                                 >
                                     See Detail
@@ -102,8 +105,9 @@ export default function ReservationCart() {
                         </Link>
 
                     </div>
+                    </div>
                 ))
             )}
-        </>
+        </div>
     );
 }

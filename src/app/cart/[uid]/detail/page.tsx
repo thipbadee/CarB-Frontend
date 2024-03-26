@@ -87,7 +87,7 @@ export default function DetailPage(bid:string) {
                 <div className="text-md mx-5 text-left font-bold text-white">Type: {bookingItems?.car?.type}</div>
                 <div className="text-md mx-5 text-left font-bold text-white">Price per day: {bookingItems?.car?.pricePerDay} Baht</div>
                 <div className="text-md mx-5 text-left font-bold text-white">License plate: {bookingItems?.car?.licensePlate}</div>
-                <div className="text-md mx-5 text-left font-bold text-white">Address: {bookingItems?.car?.address} {bookingItems?.car?.district} {bookingItems?.car?.province} {bookingItems?.car?.province} </div>
+                {/* <div className="text-md mx-5 text-left font-bold text-white">Address: {bookingItems?.car?.address} {bookingItems?.car?.district} {bookingItems?.car?.province} {bookingItems?.car?.province} </div> */}
                 <div className="text-md mx-5 text-left font-bold text-white">Google Map URL: {bookingItems?.car?.googleMapsURL}</div>
                 <div className="text-md mx-5 text-left font-bold text-white">Tel.: {bookingItems?.car?.tel}</div>
                 <div className="text-md mx-5 text-left font-bold text-white">

@@ -16,11 +16,11 @@ export default function Home() {
       
     
         </Link>
-        <Link href="/cart"  className="bg-red-300 flex  justify-center items-center w-1/2 h-full shadow-xl rounded-xl ml-16  hover:bg-red-400 transition-all duration-300 transform hover:scale-110">
+        <Link href="/about"  className="bg-red-300 flex  justify-center items-center w-1/2 h-full shadow-xl rounded-xl ml-16  hover:bg-red-400 transition-all duration-300 transform hover:scale-110">
 
         
         <h1 className="text-white font-bold text-5xl">
-            BOOKING CART
+            ABOUT US
             </h1>
         
  

@@ -70,7 +70,7 @@ export default function ReservationCart() {
     return (
         <div className="flex flex-row flex-wrap">
             {bookingItems.length === 0 ? (
-                <div className="text-xl">Empty</div>
+                <div className="text-xl text-rose-500 font-bold p-20">Empty... Go book some cars.</div>
             ) : (
                 bookingItems.map((BookingsItem) => (
                     <div>

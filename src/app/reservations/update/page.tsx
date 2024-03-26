@@ -27,19 +27,19 @@ export default function ReservationsUpdate() {
     const [pickupLocation, setPickupLocation] = useState<string>('BKK')
 
     return(
-        <main className="w-[100%] flex flex-col items-center space-y-4">
-            <div className="text-xl font-medium">Update Booking</div>
-            <div className="text-xl font-medium">Car: {model}</div>
+        <main className="w-[100%] flex flex-col items-center space-y-4 bg-red-300 p-32">
+            <div className="text-5xl font-bold text-white">Update Booking</div>
+            <div className="text-3xl font-bold text-white">Car: {model}</div>
             
             <div className="w-fit space-y-2">
-                <div className="text-medium text-left text-gray-600">Pick-Up Date</div>
+                <div className="text-medium text-center text-white font-bold">Pick-Up Date</div>
                 <LocationDateReserve onDateChange={(dateValue:Dayjs)=>{setPickupDate(dateValue)}}
                 onLocationChange={(locaValue:string)=>{setPickupLocation(locaValue)}}
                 />
             </div>
             
-            <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-            text-white shadow-sm" onClick={() => {updateBooking(pickupDate, bid, session.user.token).then((res) => {
+            <button className="block rounded-md bg-white hover:bg-red-600 hover:text-white px-3 py-2 my-5
+            text-red-400 shadow-sm" onClick={() => {updateBooking(pickupDate, bid, session.user.token).then((res) => {
                 if (!res.success) {
                     return alert('Cannot book this car on this day');
                 }

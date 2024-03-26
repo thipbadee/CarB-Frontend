@@ -77,10 +77,10 @@ export default function ReservationCart() {
                         className="bg-red-300 rounded-xl px-5 mx-5 py-2 my-2 "
                         key={BookingsItem._id}
                     >
-                        <Image src={BookingsItem.car?.imageURL ?? ''} alt="car" width={200} height={200} className="w-full h-full" />
-                        <div className="text-xl font-bold text-white mt-5">{BookingsItem.car?.brand} {BookingsItem.car?.carModel}</div>
-                        <div className="text-xl font-bold text-white">license plate: {BookingsItem.car?.licensePlate}</div>
-                        <div className="text-xl font-bold text-white">tel: {BookingsItem.car?.tel}</div>
+                        <Image src={BookingsItem.car?.imageURL ?? ''} alt="car" width={200} height={200} className="w-full h-full mt-2" />
+                        <div className="text-xl font-bold text-white mt-3">{BookingsItem.car?.brand} {BookingsItem.car?.carModel}</div>
+                        <div className="text-xl font-bold text-white">License Plate: {BookingsItem.car?.licensePlate}</div>
+                        <div className="text-xl font-bold text-white">Tel: {BookingsItem.car?.tel}</div>
                         <div className="text-sm font-bold text-white">
                             Pick-up Date: {dayjs(BookingsItem?.bookingDate).format('YYYY-MM-DD')}
                         </div>
@@ -89,7 +89,7 @@ export default function ReservationCart() {
                         </div> */}
                         <button
                             className="rounded-md bg-white hover:bg-red-500 px-3 py-2
-                            text-red-300 shadow-sm mr-2 mt-3 mb-3"
+                            text-red-300 shadow-sm mr-2 mt-3 mb-3 font-bold hover:text-white"
                             onClick={() => {deleteBooking(BookingsItem._id, session);}}
                         >
                             Remove from Cart
@@ -97,7 +97,7 @@ export default function ReservationCart() {
                         <Link href={`/cart/${BookingsItem._id}/detail`}>
                                 <button
                                     className="rounded-md bg-white hover:bg-red-500 px-3 py-2
-                                    text-red-300 shadow-sm"
+                                    text-red-300 shadow-sm font-bold hover:text-white"
                                     // onClick={() => useRouter().push(`/cart/${BookingsItem._id}/detail`)}
                                 >
                                     See Detail

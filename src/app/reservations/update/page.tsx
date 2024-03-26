@@ -9,8 +9,9 @@ import { CreateBooking } from "../../../../interfaces";
 import { addReservation } from "@/redux/features/cartSlice";
 import { useSession } from 'next-auth/react'
 import { useRouter } from "next/router";
+import updateBooking from "@/libs/updateBooking";
 
-export default function Reservations () {
+export default function ReservationsUpdate(bid:string) {
 
     const urlParams = useSearchParams()
     const cid = urlParams.get('id')
@@ -18,9 +19,10 @@ export default function Reservations () {
 
     const [message, setMessage] = useState<string>('');
     const { data: session } = useSession();
+    if (!session || !session.user.token) return null;
+    const router = useRouter();
     const [isClicked, setIsClicked] = useState(false);
 
-    const dispatch = useDispatch<AppDispatch>()
 
     const makeReservation = async () => {
 
@@ -78,7 +80,7 @@ export default function Reservations () {
 
     return(
         <main className="w-[100%] flex flex-col items-center space-y-4">
-            <div className="text-xl font-medium">New Reservation</div>
+            <div className="text-xl font-medium">Update Booking</div>
             <div className="text-xl font-medium">Car: {model}</div>
             
             <div className="w-fit space-y-2">
@@ -89,9 +91,16 @@ export default function Reservations () {
             </div>
             
             <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-            text-white shadow-sm" onClick={makeReservation}>
-                {/* {isClicked ? 'Reserved!' : 'Reserve this Car'} */}
-                Reserve this Car
+            text-white shadow-sm" onClick={() => {updateBooking(pickupDate, bid, session.user.token).then((res) => {
+                router.push(`/cart`);
+                // console.log(res)
+                // if (!res.success) {
+                //     return alert('Cannot book this car on this day');
+                // }
+                //     alert('Booking successful')
+                //     router.push(`/cart`);
+            }); }}>
+                Update
             </button>
         </main>
     );

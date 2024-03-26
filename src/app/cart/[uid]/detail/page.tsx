@@ -80,22 +80,22 @@ export default function DetailPage(bid:string) {
     return(
         <main className="text-center p-5">
             
-            <div className="flex flex-col my-10 mx-20 py-5 block rounded-xl bg-red-400 items-center">
-                <div className="font-bold text-white text-2xl ">Booking Detail</div>
+            <div className="flex flex-col my-10 mx-[27rem] py-5 block rounded-xl bg-red-300 items-center">
+                <div className="font-bold text-white text-3xl ">Booking Detail</div>
                 <Image src={bookingItems?.car?.imageURL ?? ''} alt='Car Image' width={0} height={0} sizes="100vw" className="rounded-lg w-[50%] m-5"/>
                 <div className="text-md mx-5 text-left font-bold text-white">Car: {bookingItems?.car?.brand} {bookingItems?.car?.carModel}</div>
                 <div className="text-md mx-5 text-left font-bold text-white">Type: {bookingItems?.car?.type}</div>
                 <div className="text-md mx-5 text-left font-bold text-white">Price per day: {bookingItems?.car?.pricePerDay} Baht</div>
                 <div className="text-md mx-5 text-left font-bold text-white">License plate: {bookingItems?.car?.licensePlate}</div>
                 {/* <div className="text-md mx-5 text-left font-bold text-white">Address: {bookingItems?.car?.address} {bookingItems?.car?.district} {bookingItems?.car?.province} {bookingItems?.car?.province} </div> */}
-                <div className="text-md mx-5 text-left font-bold text-white">Google Map URL: {bookingItems?.car?.googleMapsURL}</div>
-                <div className="text-md mx-5 text-left font-bold text-white">Tel.: {bookingItems?.car?.tel}</div>
+                <div className="text-md mx-5 text-left font-bold text-white">Google Map URL: <a href={bookingItems?.car?.googleMapsURL} target="_blank" rel="noopener noreferrer">{bookingItems?.car?.googleMapsURL}</a></div>
+                <div className="text-md mx-5 text-left font-bold text-white">Tel: {bookingItems?.car?.tel}</div>
                 <div className="text-md mx-5 text-left font-bold text-white">
                     Pick-up Date: {dayjs(bookingItems?.bookingDate).format('YYYY-MM-DD')}
                     {/* <Image src='/img/editButton.png' alt='Edit Button' width={0} height={0} sizes="100vw" className="w-[5%] m-5"/> */}
                 </div>
                 <Link href={`/reservations/update?id=${bid.params.uid}&model=${bookingItems?.car?.carModel}`}>
-                <button className="block rounded-md bg-white font-bold hover:bg-indigo-600 px-3 py-2
+                <button className="block rounded-md bg-white font-bold hover:bg-red-500 hover:text-white px-3 py-2
                 text-red-400 shadow-sm mt-5">
                     Edit Booking
                 </button>

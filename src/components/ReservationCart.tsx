@@ -12,7 +12,8 @@ import { getServerSession } from "next-auth"
 import { BookingsItem } from "../../interfaces";
 import { useEffect } from "react";
 import Link from "next/link";
-import { get } from "http";
+import dayjs from "dayjs";
+
 // import DetailPage from "@/app/cart/[uid]/detail/page";
 // import { useRouter } from "next/router";
 
@@ -77,9 +78,8 @@ export default function ReservationCart() {
                         <div className="text-xl">{BookingsItem.car?.brand} {BookingsItem.car?.carModel}</div>
                         <div className="text-xl">license plate: {BookingsItem.car?.licensePlate}</div>
                         <div className="text-xl">tel: {BookingsItem.car?.tel}</div>
-                        <div className="text-xl">map: {BookingsItem.car?.googleMapsURL}</div>
                         <div className="text-sm">
-                            Pick-up {BookingsItem.bookingDate} from {BookingsItem.bookingDate}
+                            Pick-up Date: {dayjs(BookingsItem?.bookingDate).format('YYYY-MM-DD')}
                         </div>
                         {/* <div className="text-sm">
                             Return {BookingsItem.bookingDate} to {BookingsItem.bookingDate}

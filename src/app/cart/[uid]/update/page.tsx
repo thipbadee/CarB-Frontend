@@ -49,7 +49,7 @@ export default function UpdatePage(bid:string) {
 
     return(
         <main className="w-[100%] flex flex-col items-center space-y-4 rounded-lg bg-slate-50">
-            <div className="text-xl font-medium">Edit Booking</div>
+            <div className="text-xl font-medium">Update Booking</div>
             
             <div className="w-fit space-y-2">
                 <div className="text-medium text-left text-gray-600">Pick-Up Date and Location</div>
@@ -68,7 +68,7 @@ export default function UpdatePage(bid:string) {
                 //     alert('Booking successful')
                 //     router.push(`/cart`);
             }); }}>
-                {isClicked ? 'Reserved!' : 'Reserve this Car'}
+                Update
             </button>
         </main>
     );

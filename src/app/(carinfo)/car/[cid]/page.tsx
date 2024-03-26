@@ -5,18 +5,6 @@ import Link from "next/link"
 export default async function CarDetailPage( {params} : { params: {cid:string}} ) {
 
     const carDetail = await getCar(params.cid)
-    
-    /**
-     * Mock Data for Demonstration Only
-     */
-
-    /*
-    const mockCarRepo = new Map()
-    mockCarRepo.set("001", {name: "Honda Civic", image:"/img/civic.jpg"})
-    mockCarRepo.set("002", {name: "Honda Accord", image:"/img/accord.jpg"})
-    mockCarRepo.set("003", {name: "Honda Accord", image:"/img/accord.jpg"})
-    mockCarRepo.set("004", {name: "Tesla Model 3", image:"/img/tesla.jpg"})
-    */
 
     return(
         <main className="text-center p-5">
@@ -52,8 +40,4 @@ export default async function CarDetailPage( {params} : { params: {cid:string}} 
             </div>
         </main>
     )
-}
-
-export async function generateStaticParams() {
-    return [{cid:'001'}, {cid:'002'}, {cid:'003'}, {cid:'004'}]
 }

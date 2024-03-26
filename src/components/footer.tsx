@@ -15,15 +15,15 @@ export default function footr() {
           <h1 className="font-bold text-4xl text-white">Car Booking Web App</h1>
           <br />
           <h1 className="font-bold text-2xl text-white">
-          user-friendly and efficient online platform designed to streamline the process of reserving and managing car rentals. With its intuitive interface and robust features, B1 enables users to easily search for available vehicles, make reservations, and handle booking-related tasks with convenience and ease.
+          a user-friendly online platform that simplifies car rental reservations. It offers an intuitive interface and robust features for searching, booking, and managing vehicle rentals efficiently.
           </h1>
           <br />
           <h1 className="font-bold text-4xl text-white">Members</h1>
             <br />
           <ul className="font-bold text-2xl text-white">
         <li>Jirameth Wannasiwaporn ( 6633033021 )</li>
-        <li>Jirameth Wannasiwaporn ( 6633033021 )</li>
-        <li>Jirameth Wannasiwaporn ( 6633033021 )</li>
+        <li>Thipbadee Ngamsukkasemsri ( 6633109021 )</li>
+        <li>Amphikapha Thathong ( 6633287021 )</li>
           </ul>
         </div>
     );

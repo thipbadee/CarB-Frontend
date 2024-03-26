@@ -18,16 +18,6 @@ export default function Banner () {
     const router = useRouter()
 
     const { data: session } = useSession()
-    console.log(session?.user.token)
-  
-  
-
-    // if (!session){
-    //     return null;
-    // }
-    // // const x = getMe(session)
-    // console.log(x)
-    // console.log(555555555,session)
 
     return (
         <div className={styles.banner} onClick={()=> { setIndex(index+1) }}>
@@ -40,7 +30,7 @@ export default function Banner () {
             CarB
             </div>
             <div className="mr-32 text-white font-bold text-3xl mt-10 drop-shadow-xl">
-            a user-friendly and efficient online platform designed to streamline the process of reserving and managing car rentals. With its intuitive interface and robust features, B1 enables users to easily search for available vehicles, make reservations, and handle booking-related tasks with convenience and ease.
+            a user-friendly online platform that simplifies car rental reservations. It offers an intuitive interface and robust features for searching, booking, and managing vehicle rentals efficiently.
             </div>
             </div>
         </div>

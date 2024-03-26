@@ -11,6 +11,10 @@ import getBookings from "@/libs/getBookings"
 import { getServerSession } from "next-auth"
 import { BookingsItem } from "../../interfaces";
 import { useEffect } from "react";
+import Link from "next/link";
+import { get } from "http";
+// import DetailPage from "@/app/cart/[uid]/detail/page";
+// import { useRouter } from "next/router";
 
 export default function ReservationCart() {
 
@@ -81,12 +85,22 @@ export default function ReservationCart() {
                             Return {BookingsItem.bookingDate} to {BookingsItem.bookingDate}
                         </div> */}
                         <button
-                            className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-                            text-white shadow-sm"
+                            className="rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+                            text-white shadow-sm mx-2"
                             onClick={() => {deleteBooking(BookingsItem._id, session);}}
                         >
                             Remove from Cart
                         </button>
+                        <Link href={`/cart/${BookingsItem._id}/detail`}>
+                                <button
+                                    className="rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+                                    text-white shadow-sm"
+                                    // onClick={() => useRouter().push(`/cart/${BookingsItem._id}/detail`)}
+                                >
+                                    See Detail
+                                </button>
+                        </Link>
+
                     </div>
                 ))
             )}

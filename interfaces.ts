@@ -37,15 +37,14 @@ export interface Car {
   brand: string;
   carModel: string;
   type: string;
+  pricePerDay: number;
   licensePlate: string;
+  address: string;
+  district: string;
+  province: string;
+  // postalCode: string;
   googleMapsURL: string;
+  imageURL: string;
   tel: string;
-  // "_id": "65fce2489bec4603fb757abf",
-  //               "brand": "Toyota",
-  //               "carModel": "altis",
-  //               "type": "sedan",
-  //               "licensePlate": "C6AZI",
-  //               "googleMapsURL": "https://www.google.com/maps?q=-28.9542,-89.8348",
-  //               "tel": "0528218057",
 }
 

@@ -94,7 +94,7 @@ export default function Reservations () {
                 />
             </div>
         
-            <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+            <button className="block rounded-md bg-red-300 w-[80%] hover:bg-red-400 transition-all duration-300 transform hover:scale-110 px-3 py-2
             text-white shadow-sm" onClick={() => {createBooking(pickupDate, cid, session.user.token).then((res) => {
                 // console.log(res)
                 if (!res.success) {

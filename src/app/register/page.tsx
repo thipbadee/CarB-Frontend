@@ -14,7 +14,7 @@ const RegistrationForm: React.FC = () => {
 
         // Validate form data
         if (!username || !email || !password || !telephone || !userRole) {
-            showMessage('Please fill in all fields');
+            alert('Please fill in all fields');
             return;
         }
 
@@ -37,19 +37,17 @@ const RegistrationForm: React.FC = () => {
                 throw new Error('Registration failed');
             }
 
-            showMessage('Registration successful');
+            alert('Registration successful');
         } catch (error) {
-            showMessage('Registration failed');
+            alert('Registration failed');
         }
     };
 
-    const showMessage = (message: string) => {
-        setMessage(message);
-    };
-
     return (
-        <div className="min-h-screen bg-pink-100 flex justify-center items-center">
-            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="py-10 bg-rose-100 flex justify-center items-center">
+            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-xl px-8 py-6 pb-8 mb-4 flex flex-col items-center">
+                <div className="text-2xl font-bold text-rose-400 text-center">Register for new user!</div>
+                <div className="text-sm font-semibold text-rose-300 text-center mb-4">Please fill all fields</div>
                 <div className="mb-4">
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -72,7 +70,7 @@ const RegistrationForm: React.FC = () => {
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="password"
-                        placeholder="Password"
+                        placeholder="Password ()"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -90,14 +88,13 @@ const RegistrationForm: React.FC = () => {
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="text"
-                        placeholder="Role"
+                        placeholder="Role (user or admin)"
                         value={userRole}
                         onChange={(e) => setUserRole(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Register</button>
+                <button type="submit" className="flex bg-pink-500 hover:bg-pink-700 text-white items-center font-bold py-2 px-4 mt-5 rounded focus:outline-none focus:shadow-outline">Register</button>
             </form>
-            <div className="text-center text-pink-500">{message}</div>
         </div>
     );
 };

@@ -8,7 +8,9 @@ import { AppDispatch } from "@/redux/store";
 import { CreateBooking } from "../../../interfaces";
 import { addReservation } from "@/redux/features/cartSlice";
 import { useSession } from 'next-auth/react'
-import { useRouter } from "next/router";
+import { redirect } from 'next/navigation'
+import { useRouter } from "next/navigation";
+import createBooking from "@/libs/createBooking";
 
 export default function Reservations () {
 
@@ -18,10 +20,11 @@ export default function Reservations () {
 
     const [message, setMessage] = useState<string>('');
     const { data: session } = useSession();
+    if (!session || !session.user.token) return null;
     const [isClicked, setIsClicked] = useState(false);
 
-    const dispatch = useDispatch<AppDispatch>()
-
+    const router = useRouter();
+    
     const makeReservation = async () => {
 
         setIsClicked(true);
@@ -41,6 +44,7 @@ export default function Reservations () {
             // dispatch(addReservation(item))
         }
 
+        
         try {
             const dateValue = pickupDate; // Declare the dateValue variable and assign it the value of pickupDate
             if (!dateValue) {
@@ -59,24 +63,21 @@ export default function Reservations () {
             });
 
 
-            // if (!response.ok) {
-            //     alert('Cannot book this car on this day');
-            //     throw new Error('Booking failed');
-            // }
-
-            useRouter().push(`/cart/${cid}/detail`);
+            if (response.ok) {
+                alert('Booking successful');
+                // redirect(`/cart`)
+            } else {
+                alert('Cannot book this car on this day');
+                throw new Error('Booking failed');
+            }
 
         } catch (error) {
-            alert('Cannot book this car on this day');
-            // useRouter().push(`/cart/${cid}/detail`);
+            // alert('Cannot book this car on this day');
         }
 
         // console.log(pickupDate?.format('YYYY-MM-DD'));
     };
 
-    const showMessage = (message: string) => {
-        setMessage(message);
-    };
 
     const [pickupDate, setPickupDate] = useState<Dayjs|null>(null)
     const [pickupLocation, setPickupLocation] = useState<string>('BKK')
@@ -92,12 +93,19 @@ export default function Reservations () {
                 onLocationChange={(locaValue:string)=>{setPickupLocation(locaValue)}}
                 />
             </div>
-            
-            <button className="block w-[80%] bg-red-400 rounded-md hover:bg-red-500 transition-all duration-300 transform hover:scale-110 px-3 py-10 mb-5
-            text-white shadow-sm font-bold text-3xl" onClick={makeReservation}>
-                {/* {isClicked ? 'Reserved!' : 'Reserve this Car'} */}
+        
+            <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
+            text-white shadow-sm" onClick={() => {createBooking(pickupDate, cid, session.user.token).then((res) => {
+                // console.log(res)
+                if (!res.success) {
+                    return alert('Cannot book this car on this day');
+                }
+                    alert('Booking successful')
+                    router.push(`/cart`);
+            }); }}>
                 Reserve this Car
             </button>
+
         </main>
     );
 }

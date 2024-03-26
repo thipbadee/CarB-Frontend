@@ -5,15 +5,22 @@ import { useSearchParams } from "next/navigation"
 import LocationDateReserve from "@/components/LocationDateReserve";
 import { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
+import { useRouter } from "next/navigation";
+import updateBooking from "@/libs/updateBooking";
+import { useSession } from 'next-auth/react'
 
 export default function UpdatePage(bid:string) {
 
     const [isClicked, setIsClicked] = useState(false);
+    const router = useRouter();
 
     const [pickupDate, setPickupDate] = useState<Dayjs|null>(null)
     const [pickupLocation, setPickupLocation] = useState<string>('BKK')
 
-    const updateBooking = async () => {
+    const { data: session } = useSession();
+    if (!session || !session.user.token) return null;
+
+    const updateBookings = async () => {
 
         setIsClicked(true);
 
@@ -52,7 +59,15 @@ export default function UpdatePage(bid:string) {
             </div>
             
             <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2
-            text-white shadow-sm" onClick={updateBooking}>
+            text-white shadow-sm" onClick={() => {updateBooking(pickupDate, bid, session.user.token).then((res) => {
+                router.push(`/cart`);
+                // console.log(res)
+                // if (!res.success) {
+                //     return alert('Cannot book this car on this day');
+                // }
+                //     alert('Booking successful')
+                //     router.push(`/cart`);
+            }); }}>
                 {isClicked ? 'Reserved!' : 'Reserve this Car'}
             </button>
         </main>

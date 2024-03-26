@@ -23,7 +23,7 @@ export default async function CarDetailPage({
 
   return (
     <main className="text-center p-5">
-      <div className="flex flex-row my-5">
+      <div className="flex flex-col my-5 xl:flex-row items-center text-center">
         <Image
           src={carDetail.data.imageURL}
           alt="Car Image"

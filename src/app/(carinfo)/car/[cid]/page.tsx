@@ -34,17 +34,17 @@ export default async function CarDetailPage({
         />
         <div className="rounded-lg w-1/2 ml-5 flex flex-col">
           <div className="text-5xl text-left my-5 text-red-400 font-bold flex">
-            {carDetail.data.brand}
+            {carDetail.data.brand} {carDetail.data.carModel}
             </div>
-            <div className="text-xl text-left text-red-300 font-bold  flex">
+            {/* <div className="text-xl text-left text-red-300 font-bold  flex">
               Car model: {carDetail.data.carModel}
-            </div>
+            </div> */}
             <div className="text-xl text-left text-red-300 font-bold  flex">Type: {carDetail.data.type}</div>
             <div className="text-xl text-left text-red-300 font-bold  flex">
-              Price per day: {carDetail.data.pricePerDay}
+              Price Per Day: {carDetail.data.pricePerDay} Baht
             </div>
             <div className="text-xl text-left text-red-300 font-bold  flex">
-              License plate: {carDetail.data.licensePlate}
+              License Plate: {carDetail.data.licensePlate}
             </div>
             <div className="text-xl text-left text-red-300 font-bold  flex">
               Address: {carDetail.data.address}
@@ -56,12 +56,12 @@ export default async function CarDetailPage({
               Province: {carDetail.data.province}
             </div>
             <div className="text-xl text-left text-red-300 font-bold  flex">
-              Postal code: {carDetail.data.postalCode}
+              Postal Code: {carDetail.data.postalCode}
             </div>
             <div className="text-xl text-left text-red-300 font-bold  flex">
-              Google map URL: {carDetail.data.googleMapsURL}
+              Google Maps URL:  <a href={carDetail.data.googleMapsURL} target="_blank" rel="noopener noreferrer"> {carDetail.data.googleMapsURL}</a>
             </div>
-            <div className="text-xl text-left text-red-300 font-bold mb-5  flex">Tel.: {carDetail.data.tel}</div>
+            <div className="text-xl text-left text-red-300 font-bold mb-5  flex">Tel: {carDetail.data.tel}</div>
           
 
           <Link

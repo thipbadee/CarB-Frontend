@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dayjs from "dayjs";
+import { ClassNames } from "@emotion/react";
 
 // import DetailPage from "@/app/cart/[uid]/detail/page";
 // import { useRouter } from "next/router";
@@ -77,7 +78,7 @@ export default function ReservationCart() {
                         className="bg-red-300 rounded-xl px-5 mx-5 py-2 my-2 "
                         key={BookingsItem._id}
                     >
-                        <Image src={BookingsItem.car?.imageURL ?? ''} alt="car" width={200} height={200} className="w-full h-full mt-2" />
+                        <Image src={BookingsItem.car?.imageURL ?? '/img/macqueen.jpg'} alt="car" width={200} height={200} style={{ objectFit: 'cover', width: '299px', height: '200px' }}  className='mt-3' />
                         <div className="text-xl font-bold text-white mt-3">{BookingsItem.car?.brand} {BookingsItem.car?.carModel}</div>
                         <div className="text-xl font-bold text-white">License Plate: {BookingsItem.car?.licensePlate}</div>
                         <div className="text-xl font-bold text-white">Tel: {BookingsItem.car?.tel}</div>

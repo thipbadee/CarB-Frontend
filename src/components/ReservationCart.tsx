@@ -96,8 +96,8 @@ export default function ReservationCart() {
                         </button>
                         <Link href={`/cart/${BookingsItem._id}/detail`}>
                                 <button
-                                    className="rounded-md bg-white hover:bg-red-500 px-3 py-2
-                                    text-red-300 shadow-sm font-bold hover:text-white"
+                                    className="rounded-md bg-white hover:bg-red-500 hover:text-white px-3 py-2
+                                    text-red-300 shadow-sm font-bold "
                                     // onClick={() => useRouter().push(`/cart/${BookingsItem._id}/detail`)}
                                 >
                                     See Detail

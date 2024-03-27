@@ -12,7 +12,7 @@ export default async function updateBooking(dateValue:dayjs.Dayjs | null, bid:st
     }
 
     try {
-        const response = await fetch(`http://localhost:5000/api/v1/bookings/${bid}`, {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/v1/bookings/${bid}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

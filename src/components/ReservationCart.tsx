@@ -26,7 +26,7 @@ export default function ReservationCart() {
 
     const deleteBooking = async (bid: string, session: any) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/v1/bookings/${bid}`, {
+            const response = await fetch(`${process.env.BACKEND_URL}/api/v1/bookings/${bid}`, {
                     method: 'DELETE',
                     headers: {
                         // 'Content-Type': 'application/json',

@@ -40,7 +40,7 @@ export default function DetailPage(data:ParamDetail) {
         setIsClicked(true);
         try {
             const dateValue = pickupDate; // Declare the dateValue variable and assign it the value of pickupDate
-            const response = await fetch(`http://localhost:5000/api/v1/bookings/${data.params.uid}`, {
+            const response = await fetch(`${process.env.BACKEND_URL}/api/v1/bookings/${data.params.uid}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

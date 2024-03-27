@@ -51,7 +51,7 @@ export default function Reservations () {
                 alert('Please select a date');
                 return;
             }
-            const response = await fetch(`http://localhost:5000/api/v1/cars/${cid}/bookings`, {
+            const response = await fetch(`${process.env.BACKEND_URL}/api/v1/cars/${cid}/bookings`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

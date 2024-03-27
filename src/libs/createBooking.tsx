@@ -22,7 +22,7 @@ export default async function createBooking(dateValue:dayjs.Dayjs | null, cid:st
 
     // console.log("eiei", bid)
     try {
-        const response = await fetch(`http://localhost:5000/api/v1/cars/${cid}/bookings`, {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/v1/cars/${cid}/bookings`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -48,3 +48,16 @@ export interface Car {
   tel: string;
 }
 
+export interface ParamDetail {
+  params: {
+    uid: string;
+  }
+}
+
+
+export interface CarJson {
+  success: boolean;
+  count: number;
+  data: Car[];
+}
+

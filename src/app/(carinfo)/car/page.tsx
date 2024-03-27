@@ -3,9 +3,10 @@ import CarCatalog from "@/components/CarCatalog"
 import { Suspense } from "react"
 import { LinearProgress } from "@mui/material"
 import CarPanel from "@/components/CarPanel"
+import { CarJson } from "../../../../interfaces"
 
-export default  function Car() {
-    const cars =  getCars()
+export default async function Car() {
+    const cars:CarJson = await getCars()
     
     
     return (

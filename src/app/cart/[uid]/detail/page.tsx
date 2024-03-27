@@ -4,7 +4,7 @@ import ReservationCart from "../../../../components/ReservationCart";
 import { use, useState } from "react";
 import { useEffect } from "react";
 import  getBooking  from "../../../../libs/getBooking";
-import { BookingsItem } from "../../../../../interfaces";
+import { BookingsItem, ParamDetail } from "../../../../../interfaces";
 import  Image from "next/image";
 import Link from "next/link";
 import { useSession } from 'next-auth/react'
@@ -12,8 +12,9 @@ import dayjs, { Dayjs } from "dayjs";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import LocationDateReserve from "../../../../components/LocationDateReserve";
+// import { ParamDetail } from "../../../../../interfaces";
 
-export default function DetailPage(bid:string) {
+export default function DetailPage(data:ParamDetail) {
 
     const [bookingItems, setBookingItems] = useState<BookingsItem | null>(null);
     const [isClicked, setIsClicked] = useState(false);
@@ -39,7 +40,7 @@ export default function DetailPage(bid:string) {
         setIsClicked(true);
         try {
             const dateValue = pickupDate; // Declare the dateValue variable and assign it the value of pickupDate
-            const response = await fetch(`http://localhost:5000/api/v1/bookings/${bid.params.uid}`, {
+            const response = await fetch(`http://localhost:5000/api/v1/bookings/${data.params.uid}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ export default function DetailPage(bid:string) {
                 throw new Error('Update Booking failed');
             }
 
-            useRouter().push(`/cart/${bid.params.uid}/detail`);
+            useRouter().push(`/cart/${data.params.uid}/detail`);
 
         } catch (error) {
             
@@ -67,14 +68,14 @@ export default function DetailPage(bid:string) {
 
     useEffect(() => {
         const fetchBookings = async () => {
-            const bookingDetail = await getBooking(session.user.token, bid.params.uid) as any;
+            const bookingDetail = await getBooking(session.user.token, data.params.uid) as any;
             if (bookingDetail !== undefined) {
                 setBookingItems(bookingDetail.data as BookingsItem);
                 // console.log("eiei", bookingDetail);
             }
         }
         fetchBookings()
-    }, [session.user.token, bid.params.uid])
+    }, [session.user.token, data.params.uid])
     // console.log("eiei222", bookingItems);
 
     return(
@@ -94,7 +95,7 @@ export default function DetailPage(bid:string) {
                     Pick-up Date: {dayjs(bookingItems?.bookingDate).format('YYYY-MM-DD')}
                     {/* <Image src='/img/editButton.png' alt='Edit Button' width={0} height={0} sizes="100vw" className="w-[5%] m-5"/> */}
                 </div>
-                <Link href={`/reservations/update?id=${bid.params.uid}&model=${bookingItems?.car?.carModel}`}>
+                <Link href={`/reservations/update?id=${data.params.uid}&model=${bookingItems?.car?.carModel}`}>
                 <button className="block rounded-md bg-white font-bold hover:bg-red-500 hover:text-white px-3 py-2
                 text-red-400 shadow-sm mt-5">
                     Edit Booking
